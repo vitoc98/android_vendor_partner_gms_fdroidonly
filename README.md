@@ -1,10 +1,11 @@
-# microG Mobile Services
-
-This is a collection of FOSS APKs, coupled with the respective Makefiles for an
-easy integration in the Android build system.
+This is a fork of https://github.com/lineageos4microg/android_vendor_partner_gms  
+It removes microg (GmsCore, GsfProxy, FakeStore) while keeping F-Droid  
+It's meant for a device of mine where i'm forced to use GApps, but i still want F-Droid Privileged Extension built-in
 
 To include them in your build, add a repo manifest file to include this repository as `vendor/partner_gms` and set
 `WITH_GMS` to `true` when building.
+It probably conflicts with the original repo's code, so don't use them together
+
 
 Example manifest:
 
@@ -15,6 +16,9 @@ Example manifest:
 </manifest>
 ```
 
+This is only meant for my personal use and **no support will be provided, use it at your own risk**  
+Credits all go to the original authors and the relative sources
+
 Note: You do not need to set `CUSTOM_PACKAGES` for the packages to be included when building with [lineageos4microg/docker-lineage-cicd](https://github.com/lineageos4microg/docker-lineage-cicd).
 
 The included APKs are:
@@ -23,11 +27,5 @@ The included APKs are:
    * FDroid Privileged Extension: a FDroid extension to ease the installation/removal of apps
    * additional_repos.xml: a simple package to include the [microG FDroid repository](https://microg.org/fdroid.html) in the ROM (requires FDroid >= 1.5)
  * microG packages (binaries sourced from [here](https://microg.org/download.html))
-   * GmsCore: the main component of microG, a FOSS reimplementation of the Google Play Services (requires GsfProxy and FakeStore for full functionality)
-   * GsfProxy: a GmsCore proxy for legacy GCM compatibility
-   * FakeStore: an empty package that mocks the existence of the Google Play Store
    * IchnaeaNlpBackend: Network location provider using Mozilla Location Service
    * NominatimGeocoderBackend: Geocoder backend that uses OSM Nominatim service.
-
-These are official unmodified prebuilt binaries, signed by the
-corresponding developers.
